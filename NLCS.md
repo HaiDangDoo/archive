@@ -26,7 +26,7 @@ Trước khi đi sâu hơn, sẽ rất hữu ích nếu tìm hiểu cách lưu m
 
 Do đó, thay vì lưu mật khẩu `ASDF1234`nguyên văn, hàm băm của nó được lưu. Ví dụ, nếu MD5 (Message Digest 5) được sử dụng, thì `ce1bccda287f1d9e6d80dbd4cb6beb60`(hash value của ASDF123) sẽ được lưu. Vấn đề đã được giải quyết? Không hẳn vậy. Đầu tiên, MD5 hiện được coi là không an toàn. Thứ hai, ngoài việc chọn hàm băm an toàn, chúng ta nên thêm một **salt** , tức là *một chuỗi ký tự ngẫu nhiên* , vào mật khẩu trước khi băm nó. Nói cách khác, thay vì lưu `hash(password)`trong bảng, chúng ta lưu `hash(password + salt)`cùng với salt. Do đó, khi người dùng cố gắng đăng nhập, hệ thống xác thực sẽ lấy mật khẩu của họ cùng với salt đã lưu, tính toán hàm băm của nó và so sánh với giá trị băm đã lưu; nếu giống hệt nhau, họ sẽ được cấp quyền truy cập. Điều này làm cho các mật khẩu đã lưu miễn nhiễm hơn với nhiều loại tấn công.
 
-1. **Password-Protected Files.**
+2. **Password-Protected Files.**
 - Các file có thể là văn bản, ảnh, video, âm thanh…
 
 Về mặt kỹ thuật, chúng ta có thể bảo vệ tính bảo mật và toàn vẹn của **dữ liệu trong quá trình truyền tải** . Hôm nay, chúng ta sẽ khám phá cách xem tài liệu được bảo vệ bằng mật khẩu. Về mặt kỹ thuật, chúng ta sẽ tấn công vào tính bảo mật của dữ **liệu khi không hoạt động**.
