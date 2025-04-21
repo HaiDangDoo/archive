@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Cập nhật sinh viên</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <header>
+        </header>
+        <main>
+            <div class="main">
+                <div class="form">
+                    <form id="sinhvien">
+                        <label for="mssv">MSSV: </label>
+                        <input type="text" id="mssv" nam="mssv"/>
+                        <label for="hoten">Họ và Tên</label>
+                        <input type="text" id="hoten" name="hoten"/>
+                        <button type="button" id="addBtn">Thêm</button>
+                    </form>
+                </div>
+                <div>
+                    <table border="1" id="sinhvienTable">
+                        <thead>
+                            <tr>
+                                <th id="stt">STT</th>
+                                <th id="mssv">MSSV</th>
+                                <th id="hovaten">Họ và tên</th>
+                                <th id="delete">Xóa</th>
+                            </tr>
+                            
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        </main>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                function loadStudent() {
+                    const xhr = new XMLHttpRequest();
+                    xhr.open("GET", "get_student.php", true);
+                    xhr.onload = function() {
+                        if (this.status === 200) {
+                            document.querySelector("#sinhvienTable tbody").innerHTML = this.responseText; // Chèn dữ liệu vào bảng
+                        } else {
+                            alert("Có lỗi xảy ra khi tải danh sách sinh viên.");
+                        }
+                    };
+                    xhr.onerror = function() {
+                        alert("Có lỗi xảy ra khi tải danh sách sinh viên.");
+                    };
+                    xhr.send();
+                }
+        
+                loadStudent();
+        
+                // Thêm sinh viên
+                document.getElementById("addBtn").addEventListener("click", function() {
+                    var mssv = document.getElementById("mssv").value;
+                    var hoten = document.getElementById("hoten").value;
+                    if (!mssv) {
+                        alert("Vui lòng nhập mã số sinh viên!!!");
+                        return;
+                    }
+                    if (!hoten) {
+                        alert("Vui lòng nhập họ tên!!!");
+                        return;
+                    }
+        
+                    // Gửi dữ liệu đến PHP để thêm sinh viên
+                    const xhr = new XMLHttpRequest();
+                    xhr.open("POST", "add_student.php", true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xhr.onload = function() {
+                        if (this.status === 200) {
+                            loadStudent(); // Tải lại danh sách sinh viên
+                            document.getElementById("sinhvien").reset(); // Đặt lại form
+                        } else {
+                            alert("Đã xảy ra lỗi khi thêm sinh viên.");
+                        }
+                    };
+                    xhr.onerror = function() {
+                        alert("Đã xảy ra lỗi khi thêm sinh viên.");
+                    };
+                   xhr.send("mssv=" + encodeURIComponent(mssv) + "&hoten=" + encodeURIComponent(hoten));
+                }); 
+        
+                // Xóa sinh viên
+                document.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('deleteBtn')) {
+                        var mssv = e.target.getAttribute('data-mssv');
+                        var id = e.target.getAttribute('data-id'); // Sử dụng ID để xóa
+                        
+                        if (confirm("Bạn có chắc chắn muốn xóa?")) {
+                            const xhr = new XMLHttpRequest();
+                            xhr.open("POST", "delete_student.php", true);
+                            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                            xhr.onload = function() {
+                                if (this.status === 200) {
+                                    loadStudent(); // Tải lại danh sách sinh viên
+                                } else {
+                                    alert("Có lỗi xảy ra khi xóa sinh viên.");
+                                }
+                            };
+                            xhr.onerror = function() {
+                                alert("Có lỗi xảy ra khi xóa sinh viên.");
+                            };
+                            xhr.send("mssv=" + encodeURIComponent(mssv) + "&id=" + encodeURIComponent(id)); // Gửi cả MSSV và ID để xóa
+                        }
+                    }
+                });
+            });
+        </script>
+        
+    </body>
+</html>

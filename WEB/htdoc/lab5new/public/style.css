@@ -1,0 +1,46 @@
+h1{
+    color: blue;
+}
+
+/* main{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+} */
+table  tr  th{
+    display:block;
+    float: left;
+}
+.submit , .clear{
+    border-radius: 10px;
+    padding: 5px 15px;
+    color: white;
+}
+.submit{
+    background-color: rgb(2, 225, 255);
+}
+.clear{
+    background-color: red;
+}
+fieldset {
+    width: 50%;
+    border: 2px solid #3353b3; /* Viền màu xanh lá */
+    border-radius: 10px; /* Bo tròn góc */
+    padding: 20px; /* Khoảng cách bên trong */
+    margin: 20px 0; /* Khoảng cách giữa các fieldset */
+    background-color: #f9f9f9; /* Màu nền */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+}
+main{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+.dangxuat{
+    text-decoration: none;
+    /* border: 1px solid #ff0000; */
+    border-radius: 10px;
+    padding: 5px 15px;
+    background-color: rgb(28, 16, 198);
+    color: white;
+}
