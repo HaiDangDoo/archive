@@ -1,0 +1,39 @@
+#calender th, #calender td{
+    border-top: 2px solid rgb(81, 80, 80);
+    border-left: 2px solid rgb(81, 80, 80);
+    border-bottom: 1px solid rgb(192, 184, 184);
+    border-right: 1px solid rgb(192, 184, 184);
+    padding: 15px;
+    text-align: left;
+    vertical-align: middle;
+    font-size:1.5rem;
+    width: 14.2857%;
+    height: 30px;
+    border-radius: 3px;
+}
+table{
+    border: 2px solid #6d6a6a;
+    width: 100%;
+}
+#calender th{
+    background-color: rgb(177, 173, 173);
+}
+#calender td:hover{
+    background-color: aliceblue;
+}
+.container-calender{
+    margin-top: 2rem;
+}
+/* add student */
+#sinhvienTable th, #sinhvienTable td{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#sinhvienTable{
+    width: 100%;
+}
+.form{
+    padding-top: 5%;
+    padding-bottom: 3%;
+}
