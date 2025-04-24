@@ -1,0 +1,83 @@
+soạn kịch bản
+I-
+(slide 4)
+1.
+- địa chỉ luận lý: ip - gồm 2 phần địa chỉ mạng và máy, việc phân chia này giúp máy tính dễ dàng giao tiếp với nhau trên Internet
+- đc vật lý: mac, nsx gán cho phần cứng, địa chỉ phẳng không phân lớp, khó giao tiếp giữa các máy tính
+
+(slide 5)
+2. 
+- arp là viết tắt của ...
+
+silde 6
+3. 
+b1: ... => để xem có địa chỉ ánh xạ từ ip->mac của máy nhận không, 
+- nếu có địa chỉ ánh xạ thì chuyển sang bước 5
+- nếu không chuyển sang bước 2
+b2: ... => máy gửi sẽ gửi broadcast cho toàn mạng với nội dung là: ai đang giữ địa chỉ ip nhận, cho nó xin lại địa chỉ mac
+b3: ...=> máy đang giữ đc ip sẽ trả lời lại máy gửi: dc ip và mac của nó
+b4: ...=> máy gửi nhận được arp reply của máy nhận sẽ cập nhật lại arp cache của mình
+b5: ...
+
+4. slide 7
+b1:...=>trong môi trường liên mạng, host a xác định host b khác lớp mạng mặc định gửi qua default gateway của R để hỏi địa chỉ mac R
+b2:...=> gửi lại đ/c MAC của mình
+b3=> gửi gói tin thông qua địa chỉ MAC vừa nhận được
+b4=> 
+b5=> 
+slide 9
+- chấm thứ 3: gói tin reply và request hoạt động độc lập nhau, nhận bất kì arp reply nào được gửi đến ngay cả khi nó không yêu cầu, nếu mục arp chưa hết hạn thì nó sẽ ghi đè arp reply mới
+- chấm thứ 4: không có phương thức chứng thực nào giúp nhận biết địa chỉ nguồn của ARP
+
+slide 10:
+sử dụng lệnh arp -a, nếu xuất hiện mục arp có cùng địa chỉ IP nhưng khác địa chỉ MAC thì có một cuộc tấn công ARP đang diễn ra
+
+slide 11:
+- arp tĩnh: cấu hình trước arp để không nhận bất kì arp reply nào được gửi đến
+- packêt filtering: kiểm tra xung đột địa chỉ MAC
+- SARP: sử dụng chữ ký số trong giao thức arp
+- DAI: kiểm tra địa chỉ ánh xạ từ IP-MAC thông qua giao thức DHCP
+- thực hiện tấn công ARP để kiểm tra các giao thức bảo mật có hoạt động hiệu quả không
+- VPN: mã hóa dữ liệu gửi đi để dữ liệu không có tác dụng với kẻ tấn công
+
+
+II-DNS
+(slide 15)
+- tên miền cấp 1: .vn, .us
+- tên muền cấp 2: .edu, .gov
+- cấp nhỏ hơn: .ctu
+=> ví dụ như tên miền này: tên miền được phân giải từ đích về đầu: khu vực Việt Nam ở hệ thống giáo dục của trường ĐHCT tại trang elearning
+
+(slide 16) 
+
+(slide 17) 
+
+(slide 18)
+b1:=> xem có địa chỉ ánh xạ tên miền-> ip hay không
+
+(slide 22)
+thứ nhất....dẫn đến...
+
+(slide 23)  
+- về phía kẻ tấn công
+- về phía nhân 
+
+(slide 24)
+thứ nhất...
+thứ 2...
+...
+(slide 25)
+- ... để...
+
+
+
+III-
+(slide 30)... nhưng mà các thuậ tpá mã hóa mạnh...điều này gây bất tiện...giải pháp là...
+(slide 31) 
+
+(slide 41): thu thập thông tin của nạn nhân từ các nguồn trên Internet, giả mạo bạn bè và các thông tin liên quan đến nạn nhân
+
+(slide 44) tổng hợp các tham số cơ bản về các giải thuật băm
+
+ 
+
