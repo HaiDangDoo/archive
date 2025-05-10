@@ -1,0 +1,25 @@
+h1{
+    color: blue;
+}
+.article{
+ }
+main{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+table  tr  th{
+    display:block;
+    float: left;
+}
+.submit , .clear{
+    padding: 5px;
+}
+fieldset {
+    border: 2px solid #3353b3; /* Viền màu xanh lá */
+    border-radius: 10px; /* Bo tròn góc */
+    padding: 20px; /* Khoảng cách bên trong */
+    margin: 20px 0; /* Khoảng cách giữa các fieldset */
+    background-color: #f9f9f9; /* Màu nền */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+}

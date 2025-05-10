@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Đăng kí thành viên</title>
+        <link rel="stylesheet" type="text/css" href="../style.css">
+    </head>
+    <body>
+        <main>
+            <div class="main">
+                <section class="wapper">
+                    <div><h1>THÔNG TIN ĐĂNG KÍ THÀNH VIÊN</h1></div>
+                    <div class="form">
+                        <form action="/dangki" method="POST" id="dangki" enctype="application/x-www-form-urlencoded">
+                            <div class="input_control">
+                                <label for="name">Họ tên: </label>
+                                <input name="name" type="text" class="input_infor"/>    
+                            </div>
+                            <div class="input_control">
+                                <label for="email">Địa chỉ Email: </label>
+                                <input name="email" type="email" class="input_infor"/>
+                            </div>
+                            <div class="input_control">
+                                <label for="psw">Mật khẩu: </label>
+                                <input type="password" name="psw" class="input_infor"/>
+                            </div>
+                            <div class="input_control">
+                                <label for="year">Năm sinh:</label>
+                                <select name="year" id="year" class="input_infor select">
+                                    <script>
+                                        const currentYear=new Date().getFullYear();
+                                        for(let i=currentYear-50;i<currentYear;i++){
+                                            document.write(`<option value=${i}>${i}</option>`);
+                                        }
+                                    </script>
+                                </select>
+                            </div>
+                            <div class="input_control">
+                                <label>Giới tính: </label>
+                                <div class="btn_gender">
+                                    <input type="radio" value="male" id="male" name="gender">
+                                    <label for="gender">Nam</label>
+                                    <input type="radio" value="female" id="female" name="gender">
+                                    <label for="gender">Nữ</label>
+                                </div>  
+                            </div>
+                            <div class="input_control" id="btn">
+                                <button type="submit" class="btn1">Đăng kí</button>
+                                <button type="button" class="btn2" onclick="clearForm()">Xóa Form</button>                           
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <script>
+            function clearForm(){
+                document.getElementById("dangki").reset();
+            }
+        </script>
+    </body>
+</html>
